@@ -17,3 +17,7 @@ class Showstories(models.Model):
 
     def __str__(self):
         return f"{self.title}"
+
+    class Meta:
+        verbose_name_plural = 'Showstories'
+
