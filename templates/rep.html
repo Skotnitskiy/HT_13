@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+</head>
+<body>
+<ul>
+    <table border="1">
+        <th>by</th>
+        <th>descendants</th>
+        <th>id</th>
+        <th>kids</th>
+        <th>score</th>
+        <th>text</th>
+        <th>time</th>
+        <th>title</th>
+        <th>type</th>
+        <th>url</th>
+        {% for row in rows %}
+        <tr>
+            <td>{{row.by}}</td>
+            <td>{{row.descendants}}</td>
+            <td>{{row.id}}</td>
+            <td>{{row.kids}}</td>
+            <td>{{row.score}}</td>
+            <td>{{row.text}}</td>
+            <td>{{row.time}}</td>
+            <td>{{row.title}}</td>
+            <td>{{row.type}}</td>
+            {% if row.url %}
+            <td><a href={{row.url}}>{{row.url}}</a></td>
+            {% else %}
+            <td></td>
+        </tr>
+            {%endif%}
+        {% endfor %}
+    </table>
+</ul>
+
+</body>
+</html>
