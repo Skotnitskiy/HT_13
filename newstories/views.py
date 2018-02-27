@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+from .models import Newstories
+
+
+def newstories(request):
+    newstories_list = Newstories.objects.all()
+    return render(request, 'rep.html', {'rows': newstories_list})

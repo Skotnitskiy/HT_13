@@ -1,3 +1,9 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+from .models import Showstories
+
+
+def showstories(request):
+    showstories_list = Showstories.objects.all()
+    return render(request, 'rep.html', {'rows': showstories_list})

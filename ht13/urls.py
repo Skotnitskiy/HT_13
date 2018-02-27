@@ -16,6 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+import jobstories.views
+import newstories.views
+import showstories.views
+import askstories.views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('jobstories/', jobstories.views.jobstories),
+    path('newstories/', newstories.views.newstories),
+    path('showstories/', showstories.views.showstories),
+    path('askstories/', askstories.views.askstories),
 ]
