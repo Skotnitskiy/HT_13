@@ -14,3 +14,6 @@ class Showstories(models.Model):
     title = models.CharField(max_length=300, blank=True, null=True)
     type = models.CharField(max_length=100, blank=True, null=True)
     url = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.title}"
