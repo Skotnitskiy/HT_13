@@ -1,88 +1,124 @@
 body {
-  margin: 0;
-  font-size: 14px;
+    margin: 0;
+    font-size: 14px;
 }
 
 .dotcom{
-  color: #4CAF50;
+    color: #4CAF50;
 }
 
 .w3-wide {
-  letter-spacing: 4px;
+    letter-spacing: 4px;
 }
 
 .w3-right {
-  float: right!important;
+    float: right!important;
 }
 
 .toptext {
-  position: relative;
-  top: 22px;
+    position: relative;
+    top: 22px;
 
 }
 
 .w3schools-logo {
-  text-decoration: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 37px;
-  letter-spacing: 3px;
-  color: #555555;
-  display: block;
-  position: absolute;
-  top: 40px;
+    text-decoration: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 37px;
+    letter-spacing: 3px;
+    color: #555555;
+    display: block;
+    position: absolute;
+    top: 40px;
 }
 
 a.w3schools-logo:hover{
-  color: #4CAF50;
+    color: #4CAF50;
 }
 
 .header {
-  position: relative;
-  background-color: #ffffff;
-  height: 68px;
-  padding-top: 20px;
-  line-height: 50px;
-  overflow: hidden;
-  z-index: 2;
+    position: relative;
+    background-color: #ffffff;
+    height: 68px;
+    padding-top: 20px;
+    line-height: 50px;
+    overflow: hidden;
+    z-index: 2;
 }
 
 #navbar {
-  overflow: hidden;
-  background-color: #5F5F5F;
+    position: fixed;
+    overflow: hidden;
+    background-color: #5F5F5F;
+    width: 100%;
 }
 
 #navbar a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
 }
 
 #navbar a:hover {
-  background-color: black;
-  color: white;
+    background-color: black;
+    color: white;
 }
 
 #navbar a.active {
-  background-color: #4CAF50;
-  color: white;
+    background-color: #4CAF50;
+    color: white;
 }
 
 .content {
-  padding: 16px;
+    padding: 60px 15px 15px 180px;
 }
 
 .sticky {
-  position: fixed;
-  top: 0;
-  width: 100%
+    position: fixed;
+    top: 0;
+    width: 100%
 }
 
 .sticky + .content {
-  padding-top: 60px;
+    padding-top: 60px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 136px;
+    left: 0;
+    background-color: #F1F1F1;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 15px;
+    }
 }
