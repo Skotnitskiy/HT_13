@@ -1,11 +1,33 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Report</title>
+    <link rel="stylesheet" href="{% static 'css/ht13.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<ul>
+<div class="header">
+    <a class="w3schools-logo" href="#">w3schools<span class="dotcom">.com</span></a>
+    <div class="w3-right w3-wide toptext"
+         style="font-family:'Segoe UI',Arial,sans-serif">THE WORLD'S LARGEST WEB DEVELOPER SITE</div>
+</div>
+<div id="navbar">
+    <a class="active fa fa-home" title="Home" href="javascript:void(0)"></a>
+    <a href="javascript:void(0)">HTML</a>
+    <a href="javascript:void(0)">CSS</a>
+    <a href="javascript:void(0)">JAVASCRIPT</a>
+    <a href="javascript:void(0)">SQL</a>
+    <a href="javascript:void(0)">PHP</a>
+    <a href="javascript:void(0)">BOOTSTRAP</a>
+    <a href="javascript:void(0)">HOW TO</a>
+    <a href="javascript:void(0)">JQUERY</a>
+    <a class="fa fa-globe" href="javascript:void(0)"></a>
+    <a class="fa fa-search" href="javascript:void(0)"></a>
+</div>
+
+<div id="content">
     <table border="1">
         <th>by</th>
         <th>descendants</th>
@@ -18,25 +40,25 @@
         <th>type</th>
         <th>url</th>
         {% for row in rows %}
-        <tr>
-            <td>{{row.by}}</td>
-            <td>{{row.descendants}}</td>
-            <td>{{row.id}}</td>
-            <td>{{row.kids}}</td>
-            <td>{{row.score}}</td>
-            <td>{{row.text}}</td>
-            <td>{{row.time}}</td>
-            <td>{{row.title}}</td>
-            <td>{{row.type}}</td>
-            {% if row.url %}
-            <td><a href={{row.url}}>{{row.url}}</a></td>
-            {% else %}
-            <td></td>
-        </tr>
-            {%endif%}
+            <tr>
+                <td>{{row.by}}</td>
+                <td>{{row.descendants}}</td>
+                <td>{{row.id}}</td>
+                <td>{{row.kids}}</td>
+                <td>{{row.score}}</td>
+                <td>{{row.text}}</td>
+                <td>{{row.time}}</td>
+                <td>{{row.title}}</td>
+                <td>{{row.type}}</td>
+                {% if row.url %}
+                    <td><a href={{row.url}}>{{row.url}}</a></td>
+                {% else %}
+                    <td></td>
+                    </tr>
+                {%endif%}
         {% endfor %}
     </table>
-</ul>
-
+</div>
+<script src="{% static 'js/ht13.js' %}"></script>
 </body>
 </html>
