@@ -1,8 +1,14 @@
 from django.shortcuts import render
 
-from .models import Askstories
+from askstories.models import Askstories
+from main.models import Category
 
 
 def askstories(request):
+    categories = Category.objects.all()
     askstories_list = Askstories.objects.all()
-    return render(request, 'rep.html', {'rows': askstories_list})
+    context = {
+        'rows': askstories_list,
+        'categories': categories
+    }
+    return render(request, 'rep.html', context)

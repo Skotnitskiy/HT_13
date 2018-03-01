@@ -108,9 +108,13 @@ a.w3schools-logo:hover{
     color: black;
     display: block;
 }
-
+.sidenav a.active {
+    background-color: #4CAF50;
+    color: #ffffff;
+}
 .sidenav a:hover {
-    color: #f1f1f1;
+    color: #000000;
+    background-color: #cccccc;
 }
 
 @media screen and (max-height: 450px) {
@@ -121,4 +125,46 @@ a.w3schools-logo:hover{
     .sidenav a {
         font-size: 15px;
     }
+}
+.w3-white, .w3-hover-white:hover {
+    color: #000 !important;
+    background-color: #fff !important;
+}
+
+.w3-container, .w3-panel {
+    padding: 0.01em 100px;
+}
+
+.w3-center {
+    text-align: center!important;
+}
+
+.w3-small {
+    font-size: 12px!important;
+}
+
+.w3-padding {
+    padding: 8px 16px!important;
+}
+
+.w3-opacity, .w3-hover-opacity:hover {
+    opacity: 0.60;
+}
+
+.w3-col.l3 {
+    width: 24.99999%;
+}
+
+.w3-col, .w3-half, .w3-third, .w3-twothird, .w3-threequarter, .w3-quarter {
+    float: left;
+    width: 100%;
+}
+
+.w3-light-grey, .w3-hover-light-grey:hover {
+    color: #000 !important;
+    background-color: #f1f1f1 !important;
+}
+.w3-col, .w3-half, .w3-third, .w3-twothird, .w3-threequarter, .w3-quarter {
+    float: left;
+    width: 100%;
 }

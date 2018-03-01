@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+import askstories.views
 import jobstories.views
+import main.views
 import newstories.views
 import showstories.views
-import askstories.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,4 +28,5 @@ urlpatterns = [
     path('newstories/', newstories.views.newstories),
     path('showstories/', showstories.views.showstories),
     path('askstories/', askstories.views.askstories),
+    path('', main.views.index)
 ]

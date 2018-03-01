@@ -29,10 +29,9 @@
 </div>
 
 <div class="sidenav" id="sidenav">
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#clients">Clients</a>
-  <a href="#contact">Contact</a>
+    {% for category in categories %}
+        <a href="/{{ category.category_name }}" class="lnk">{{ category.category_name }}</a>
+    {% endfor %}
 </div>
 
 <div class="content">
@@ -66,6 +65,129 @@
                 {%endif%}
         {% endfor %}
     </table>
+</div>
+<div id="footer" class="footer w3-container w3-white">
+
+    <hr>
+    <div style="overflow:auto">
+        <!-- BottomMediumRectangle -->
+        <div class="bottomad" id="div-gpt-ad-1422003450156-0">
+            <script type="text/javascript">
+                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1422003450156-0'); });
+            </script>
+            <div id="google_ads_iframe_/16833175/BottomMediumRectangle_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/16833175/BottomMediumRectangle_0" title="3rd party ad content" name="google_ads_iframe_/16833175/BottomMediumRectangle_0" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" srcdoc="" style="border: 0px; vertical-align: bottom;"></iframe></div></div>
+        <!-- RightBottomMediumRectangle -->
+        <div class="bottomad" id="div-gpt-ad-1422003450156-3">
+            <script type="text/javascript">
+                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1422003450156-3'); });
+            </script>
+            <div id="google_ads_iframe_/16833175/RightBottomMediumRectangle_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/16833175/RightBottomMediumRectangle_0" title="3rd party ad content" name="google_ads_iframe_/16833175/RightBottomMediumRectangle_0" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" srcdoc="" style="border: 0px; vertical-align: bottom;"></iframe></div></div>
+    </div>
+    <hr>
+    <div class="w3-row w3-center w3-small">
+        <div class="w3-col l3 m3 s12">
+            <a href="javascript:void(0);" onclick="displayError();return false" style="white-space:nowrap;">REPORT ERROR</a>
+        </div>
+        <div class="w3-col l3 m3 s12">
+            <a href="javascript:void(0);" target="_blank" onclick="printPage();return false;">PRINT PAGE</a>
+        </div>
+        <div class="w3-col l3 m3 s12">
+            <a href="/forum/default.asp" target="_blank">FORUM</a>
+        </div>
+        <div class="w3-col l3 m3 s12">
+            <a href="/about/default.asp" target="_top">ABOUT</a>
+        </div>
+    </div>
+    <hr>
+    <div class="w3-light-grey w3-padding w3-center" id="err_form" style="display:none;position:relative">
+        <span onclick="this.parentElement.style.display='none'" class="w3-button w3-display-topright">×</span>
+        <h2>Your Suggestion:</h2>
+        <form>
+            <div class="w3-section">
+                <label for="err_email">Your E-mail:</label>
+                <input class="w3-input" type="text" style="width:100%" id="err_email" name="err_email">
+            </div>
+            <div class="w3-section">
+                <label for="err_email">Page address:</label>
+                <input class="w3-input" type="text" style="width:100%" id="err_url" name="err_url" disabled="disabled">
+            </div>
+            <div class="w3-section">
+                <label for="err_email">Description:</label>
+                <textarea rows="10" class="w3-input" id="err_desc" name="err_desc" style="width:100%;"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="button" onclick="sendErr()">Submit</button>
+            </div>
+            <br>
+        </form>
+    </div>
+    <div class="w3-container w3-light-grey w3-padding" id="err_sent" style="display:none;position:relative">
+        <span onclick="this.parentElement.style.display='none'" class="w3-button w3-display-topright">×</span>
+        <h2>Thank You For Helping Us!</h2>
+        <p>Your message has been sent to W3Schools.</p>
+    </div>
+
+    <div class="w3-row w3-center w3-small">
+        <div class="w3-col l3 m6 s12">
+            <div class="top10">
+                <h4>Top 10 Tutorials</h4>
+                <a href="/html/default.asp">HTML Tutorial</a><br>
+                <a href="/css/default.asp">CSS Tutorial</a><br>
+                <a href="/js/default.asp">JavaScript Tutorial</a><br>
+                <a href="/w3css/default.asp">W3.CSS Tutorial</a><br>
+                <a href="/bootstrap/default.asp">Bootstrap Tutorial</a><br>
+                <a href="/sql/default.asp">SQL Tutorial</a><br>
+                <a href="/php/default.asp">PHP Tutorial</a><br>
+                <a href="/jquery/default.asp">jQuery Tutorial</a><br>
+                <a href="/angular/default.asp">Angular Tutorial</a><br>
+                <a href="/howto/default.asp">How To Tutorial</a><br>
+            </div>
+        </div>
+        <div class="w3-col l3 m6 s12">
+            <div class="top10">
+                <h4>Top 10 References</h4>
+                <a href="/tags/default.asp">HTML Reference</a><br>
+                <a href="/cssref/default.asp">CSS Reference</a><br>
+                <a href="/jsref/default.asp">JavaScript Reference</a><br>
+                <a href="/w3css/w3css_references.asp">W3.CSS Reference</a><br>
+                <a href="/bootstrap/bootstrap_ref_all_classes.asp">Bootstrap Reference</a><br>
+                <a href="/sql/sql_ref_mysql.asp">SQL Reference</a><br>
+                <a href="/php/php_ref_array.asp">PHP Reference</a><br>
+                <a href="/colors/colors_names.asp">HTML Colors</a><br>
+                <a href="/jquery/jquery_ref_selectors.asp">jQuery Reference</a><br>
+                <a href="/angular/angular_ref_directives.asp">AngularJS Reference</a><br>
+            </div>
+        </div>
+        <div class="w3-col l3 m6 s12">
+            <div class="top10">
+                <h4>Top 10 Examples</h4>
+                <a href="/html/html_examples.asp">HTML Examples</a><br>
+                <a href="/css/css_examples.asp">CSS Examples</a><br>
+                <a href="/js/js_examples.asp">JavaScript Examples</a><br>
+                <a href="/w3css/w3css_examples.asp">W3.CSS Examples</a><br>
+                <a href="/bootstrap/bootstrap_examples.asp">Bootstrap Examples</a><br>
+                <a href="/js/js_dom_examples.asp">HTML DOM Examples</a><br>
+                <a href="/php/php_examples.asp">PHP Examples</a><br>
+                <a href="/jquery/jquery_examples.asp">jQuery Examples</a><br>
+                <a href="/angular/angular_examples.asp">Angular Examples</a><br>
+                <a href="/xml/xml_examples.asp">XML Examples</a><br>
+            </div>
+        </div>
+        <div class="w3-col l3 m6 s12">
+            <div class="top10">
+                <h4>Web Certificates</h4>
+                <a href="/cert/default.asp">HTML Certificate</a><br>
+                <a href="/cert/default.asp">CSS Certificate</a><br>
+                <a href="/cert/default.asp">JavaScript Certificate</a><br>
+                <a href="/cert/default.asp">jQuery Certificate</a><br>
+                <a href="/cert/default.asp">PHP Certificate</a><br>
+                <a href="/cert/default.asp">Bootstrap Certificate</a><br>
+                <a href="/cert/default.asp">XML Certificate</a><br>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    {#    <script src="https://www.w3schools.com/lib/w3schools_footer.js"></script>#}
 </div>
 <script src="{% static 'js/ht13.js' %}"></script>
 </body>
