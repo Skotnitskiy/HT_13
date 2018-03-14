@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'newstories',
     'showstories',
     'main',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -108,6 +109,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES':[
+        'rest_framework.permissions.IsAdminUser',
+    ],
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/

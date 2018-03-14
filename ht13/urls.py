@@ -13,8 +13,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import url
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
 
 import askstories.views
 import jobstories.views
@@ -22,11 +24,20 @@ import main.views
 import newstories.views
 import showstories.views
 
+router = routers.DefaultRouter()
+router.register(r'api/categories', main.views.CategoriesViewSet)
+router.register(r'api/askstories', main.views.AskstoriesViewSet)
+router.register(r'api/jobstories', main.views.JobstoriesViewSet)
+router.register(r'api/newstories', main.views.NewstoriesViewSet)
+router.register(r'api/showstories', main.views.ShowstoriesViewSet)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('jobstories/', jobstories.views.jobstories),
     path('newstories/', newstories.views.newstories),
     path('showstories/', showstories.views.showstories),
     path('askstories/', askstories.views.askstories),
-    path('', main.views.index)
+    path('', main.views.index),
+    url(r'^', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
