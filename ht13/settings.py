@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'newstories',
     'showstories',
     'main',
-    'rest_framework'
+    'rest_framework',
+    'api_parser'
 ]
 
 MIDDLEWARE = [

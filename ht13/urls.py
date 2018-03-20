@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 
+import api_parser.views
 import askstories.views
 import jobstories.views
 import main.views
@@ -37,6 +38,8 @@ urlpatterns = [
     path('newstories/', newstories.views.newstories),
     path('showstories/', showstories.views.showstories),
     path('askstories/', askstories.views.askstories),
+    path('parse/', api_parser.views.parse),
+    path('parse/<str:category>', api_parser.views.parse_category),
     path('', main.views.index),
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
