@@ -1,5 +1,7 @@
 import logging.config
 import time
+import smtplib
+from email.message import EmailMessage
 
 import psycopg2
 import requests
@@ -125,16 +127,38 @@ def report():
     return html.format(rows)
 
 
+def send_report(rep):
+    gmail_user = 'geekpy.test@gmail.com'
+    gmail_password = 'qwerty123Ss'
+
+    msg = EmailMessage()
+    you = 'one2011@yandex.ua'
+    msg['Subject'] = 'Report Sergey Skotnitskiy'
+    msg['From'] = gmail_user
+    msg['To'] = you
+    msg.set_content(rep)
+    msg.set_type('text/html')
+
+    s = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+    s.login(gmail_user, gmail_password)
+    s.sendmail(gmail_user, [you], msg.as_string())
+    s.close()
+
+
 def parse(request):
     parser = Parser()
     parser.record()
-    return HttpResponse(report())
+    rep = report()
+    send_report(rep)
+    return HttpResponse(rep)
 
 
 def parse_category(request, category):
     if category in conf.categories_list:
         parser = Parser()
         parser.record(category)
-        return HttpResponse(report())
+        rep = report()
+        send_report(rep)
+        return HttpResponse(rep)
     else:
         return HttpResponse("Category '{}' is not exist".format(category))
