@@ -1,4 +1,5 @@
 import logging.config
+import time
 
 import psycopg2
 import requests
@@ -15,6 +16,8 @@ from api_parser import config as conf
 conn = psycopg2.connect(database=conf.db_name, user=conf.db_user, host=conf.db_host)
 cursor = conn.cursor()
 dict_cur = conn.cursor(cursor_factory=RealDictCursor)
+news_counter = {key: 0 for key in conf.categories_list}
+news_time = {key: 0.0 for key in conf.categories_list}
 
 
 def get_table_name(category):
@@ -80,10 +83,12 @@ class Parser(object):
         ids_records = self.get_records_id(category)
         self.logger.info("report generation started...")
         record_line = {}
+        start_time = 0.0
         for key, val in ids_records.items():
             old_ids = self.get_old_ids(key)
             for id_rec in val:
                 try:
+                    start_time = time.time()
                     record_line = requests.get(conf.item_url.format(id_rec)).json()
                 except requests.exceptions.RequestException as e:
                     self.logger.error(e)
@@ -93,20 +98,43 @@ class Parser(object):
                         date = datetime.date(datetime.fromtimestamp((record_line.get('time'))))
                         if date >= conf.from_date:
                             self.write_record(key, record_line, old_ids)
+                            end_time = time.time()
+                            cnt = news_counter.get(key)
+                            cnt += 1
+                            result_time = (end_time - start_time)/60
+                            time_cnt = news_time.get(key)
+                            time_cnt += result_time
+                            news_time.update({key: time_cnt})
+                            news_counter.update({key: cnt})
                             self.logger.info("record {} added to result list".format(id_rec))
                             pprint(record_line)
+
+
+def report():
+    html = '<table border=1>' \
+           '<th>Category</th>' \
+           '<th>Count</th>' \
+           '<th>Minutes</th>' \
+           '{} </table>'
+    rows = ''
+    for category, value in news_counter.items():
+        if value > 0:
+            rows += '<tr><td>{}</td>'.format(category)
+            rows += '<td>{}</td>'.format(value)
+            rows += '<td>{}</td></tr>'.format(news_time.get(category))
+    return html.format(rows)
 
 
 def parse(request):
     parser = Parser()
     parser.record()
-    return HttpResponse("Parsing completed")
+    return HttpResponse(report())
 
 
 def parse_category(request, category):
     if category in conf.categories_list:
         parser = Parser()
         parser.record(category)
-        return HttpResponse("Parsing completed")
+        return HttpResponse(report())
     else:
         return HttpResponse("Category '{}' is not exist".format(category))
